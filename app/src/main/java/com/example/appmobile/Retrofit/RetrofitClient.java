@@ -9,7 +9,7 @@ public class RetrofitClient {
 
     public static Retrofit getInstace(){
         if(instace == null) {
-            new Retrofit.Builder()
+            instace=new Retrofit.Builder()
                     .baseUrl("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
