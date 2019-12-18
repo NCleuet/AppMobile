@@ -72,7 +72,7 @@ public class PokemonList extends Fragment {
                         @Override
                         public void accept(Pokedex pokedex) throws Exception {
                             Common.commonPokemonList=pokedex.getPokemon();
-                            PokemonListAdapter adapter=new PokemonListAdapter(getActivity(),Common.commonPokemonList);
+                            PokemonListAdapter adapter = new PokemonListAdapter(getActivity(),Common.commonPokemonList);
 
                             pokemon_list_recyclerview.setAdapter(adapter);
                         }
