@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.appmobile.Adapter.PokemonEvolutionAdapter;
+import com.example.appmobile.Adapter.PokemonTypeAdapter;
 import com.example.appmobile.Common.Common;
 import com.example.appmobile.Model.Pokemon;
 
@@ -88,6 +90,22 @@ public class PokemonDetail extends Fragment {
 
         pokemon_weight.setText("Weight : "+pokemon.getWeight());
         pokemon_height.setText("Height : "+pokemon.getHeight());
+
+        //Set Type
+        PokemonTypeAdapter typeAdapter = new PokemonTypeAdapter(getActivity(),pokemon.getType());
+        recycler_type.setAdapter(typeAdapter);
+
+        //Set Weakness
+        PokemonTypeAdapter weaknessAdapter = new PokemonTypeAdapter(getActivity(),pokemon.getWeaknesses());
+        recycler_weakness.setAdapter(weaknessAdapter);
+
+        //Set Evolution
+        PokemonEvolutionAdapter prevEvolutionAdapter = new PokemonEvolutionAdapter(getActivity(),pokemon.getPrev_evolution());
+        recycler_prev_evolution.setAdapter(prevEvolutionAdapter);
+
+        PokemonEvolutionAdapter nextEvolutionAdapter = new PokemonEvolutionAdapter(getActivity(),pokemon.getNext_evolution());
+        recycler_next_evolution.setAdapter(nextEvolutionAdapter);
+
     }
 
 }
