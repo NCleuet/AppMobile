@@ -53,7 +53,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             public void onClick(View view, int position) {
                 //Toast.makeText(context, "Vous avez cliqué sur : "+pokemonList.get(position).getName(), Toast.LENGTH_LONG).show();
                 LocalBroadcastManager.getInstance(context)
-                        .sendBroadcast(new Intent(Common.KEY_ENABLE_HOME).putExtra("position",position));
+                        .sendBroadcast(new Intent(Common.KEY_ENABLE_HOME).putExtra("num",pokemonList.get(position).getNum()));
             }
         });
     }
