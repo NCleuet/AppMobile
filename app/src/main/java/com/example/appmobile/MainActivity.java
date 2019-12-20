@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().toString().equals(Common.KEY_POKEMON_TYPE))
             {
-
                 //Replace Fragment
                 Fragment pokemonType = PokemonType.getInstance();
                 String type = intent.getStringExtra("type");
