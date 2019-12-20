@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.replace(R.id.list_pokemon_fragment, detailFragment);
                     fragmentTransaction.addToBackStack("detail");
                     fragmentTransaction.commit();
-
                     //Set Pokemon name for Toolbar
                     Pokemon pokemon = Common.findPokemonByNum(num);
                     toolbar.setTitle(pokemon.getName());
@@ -79,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().toString().equals(Common.KEY_NUM_EVOLUTION))
             {
-
-
+                
                 //Replace Fragment
                 Fragment detailFragment = PokemonDetail.getInstance();
                 Bundle bundle = new Bundle();
