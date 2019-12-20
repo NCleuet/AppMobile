@@ -1,4 +1,4 @@
-package com.example.appmobile;
+package com.example.appmobile.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import com.example.appmobile.Common.Common;
 import com.example.appmobile.Model.Pokemon;
+import com.example.appmobile.R;
 
 public class MainActivity extends AppCompatActivity {
 

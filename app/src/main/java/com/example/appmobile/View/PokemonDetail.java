@@ -1,4 +1,4 @@
-package com.example.appmobile;
+package com.example.appmobile.View;
 
 
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import com.example.appmobile.Adapter.PokemonEvolutionAdapter;
 import com.example.appmobile.Adapter.PokemonTypeAdapter;
 import com.example.appmobile.Common.Common;
 import com.example.appmobile.Model.Pokemon;
+import com.example.appmobile.R;
 
 
 /**
