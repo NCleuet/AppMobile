@@ -23,6 +23,32 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar;
 
+    BroadcastReceiver showPokemonType = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().toString().equals(Common.KEY_POKEMON_TYPE))
+            {
+
+
+                //Replace Fragment
+                Fragment pokemonType = PokemonType.getInstance();
+                String type = intent.getStringExtra("type");
+                Bundle bundle = new Bundle();
+                bundle.putString("type",type);
+                pokemonType.setArguments(bundle);
+
+                getSupportFragmentManager().popBackStack(0,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.list_pokemon_fragment, pokemonType);
+                fragmentTransaction.addToBackStack("type");
+                fragmentTransaction.commit();
+
+                toolbar.setTitle("POKEMON TYPE "+type.toUpperCase());
+            }
+        }
+    };
+
         BroadcastReceiver showDetail = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -93,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this)
                 .registerReceiver(showEvolution,new IntentFilter(Common.KEY_NUM_EVOLUTION));
 
+        LocalBroadcastManager.getInstance(this)
+                .registerReceiver(showPokemonType,new IntentFilter(Common.KEY_POKEMON_TYPE));
     }
 
     @Override
@@ -103,9 +131,23 @@ public class MainActivity extends AppCompatActivity {
 
                 //Clear all fragment detail and pop to list fragment
                 getSupportFragmentManager().popBackStack("detail", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                getSupportFragmentManager().popBackStack("type", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+
+
+                // Replace Fragment
+
+                Fragment pokemonList = PokemonList.getInstance();
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.remove(pokemonList);
+                fragmentTransaction.replace(R.id.list_pokemon_fragment,pokemonList);
+                fragmentTransaction.commit();
 
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+
                 break;
                 default:
                     break;

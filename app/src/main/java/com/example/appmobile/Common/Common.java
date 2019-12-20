@@ -2,6 +2,7 @@ package com.example.appmobile.Common;
 
 import com.example.appmobile.Model.Pokemon;
 
+import android.content.Intent;
 import android.graphics.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 public class Common {
     public static final String KEY_ENABLE_HOME = "position";
     public static final String KEY_NUM_EVOLUTION = "num";
+    public static final String KEY_POKEMON_TYPE = "type";
     public static List<Pokemon> commonPokemonList=new ArrayList<>();
     public static int getColorByType(String type) {
         switch(type)

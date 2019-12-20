@@ -1,11 +1,13 @@
 package com.example.appmobile.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appmobile.Common.Common;
@@ -36,12 +38,7 @@ public class PokemonTypeAdapter extends RecyclerView.Adapter<PokemonTypeAdapter.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.chip.setChipText(typeList.get(position));
         holder.chip.changeBackgroundColor(Common.getColorByType(typeList.get(position)));
-        holder.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                //Fix Crash
-            }
-        });
+
     }
 
     @Override
@@ -51,11 +48,7 @@ public class PokemonTypeAdapter extends RecyclerView.Adapter<PokemonTypeAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         Chip chip;
-        ItemClickListener itemClickListener;
 
-        public void setItemClickListener(ItemClickListener itemClickListener) {
-            this.itemClickListener = itemClickListener;
-        }
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,7 +56,8 @@ public class PokemonTypeAdapter extends RecyclerView.Adapter<PokemonTypeAdapter.
             chip.setOnChipClickListener(new OnChipClickListener() {
                 @Override
                 public void onChipClick(View v) {
-                    itemClickListener.onClick(v,getAdapterPosition());
+                    LocalBroadcastManager.getInstance(context)
+                            .sendBroadcast(new Intent(Common.KEY_POKEMON_TYPE).putExtra("type",typeList.get(getAdapterPosition())));
 
                 }
             });
