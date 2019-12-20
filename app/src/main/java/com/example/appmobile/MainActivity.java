@@ -15,7 +15,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import com.example.appmobile.Common.Common;
 import com.example.appmobile.Model.Pokemon;
 
@@ -142,8 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-
+                
                 break;
                 default:
                     break;
