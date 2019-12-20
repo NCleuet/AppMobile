@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                
+
                 break;
                 default:
                     break;
