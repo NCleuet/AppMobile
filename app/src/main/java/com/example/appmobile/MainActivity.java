@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().toString().equals(Common.KEY_NUM_EVOLUTION))
             {
-                
+
                 //Replace Fragment
                 Fragment detailFragment = PokemonDetail.getInstance();
                 Bundle bundle = new Bundle();
